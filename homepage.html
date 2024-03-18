@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #0A1128;
+  }
+
+  .navbar {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  border-bottom: 1px solid #cccccc;
+  }
+  
+  @media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+  }
+
+  .logo img {
+    width: 30px;
+  }
+
+  .menu-container {
+    display: flex;
+    align-items: center;
+  }
+
+  @media (max-width: 600px) {
+    .menu-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+  }
+
+  .menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-right: 20px;
+  }
+
+  .menu li {
+    display: inline;
+  }
+
+  .menu li a {
+    text-decoration: none;
+    color: #fff;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+  }
+
+  .menu li a:hover {
+    color: #cccccc;
+  }
+
+  .menu li:last-child {
+    margin-right: 0;
+  }
+
+  @media (max-width: 600px) {
+    .menu li {
+          display: block;
+          margin-bottom: 5px;
+      }
+    }
+
+  .resume-btn {
+    background-color: #034078;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    width: fit-content;
+    transition: background-color 0.3s ease;
+  }
+
+  .resume-btn:hover {
+    background-color: #001F54;
+  }
+
+/* Main Content */
+.container {
+  display: flex;
+  justify-content: center;
+  max-width: 700px;
+  width: 100%;  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+  @media (max-width: 600px) {
+    .container {
+      top: 70%;
+    }
+  }
+
+.intro {
+  text-align: left;
+  margin-top: 0px;
+  color: white;
+}
+
+.greeting {
+  color:#1282A2;
+
+}
+
+.name {
+  font-size: 4rem;
+  font-weight: 900;
+  margin: 5px 0;
+}
+
+.description {
+  font-size: 4rem;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.explination {
+  color: #cccccc
+}
+
+
+</style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">
+      <a href="homepage.html">
+        <img src="/logo.png" alt="Logo">
+      </a>
+    </div>
+    <div class="menu-container">
+      <ul class="menu">
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/projects.html">Projects</a></li>
+        <li><a href="/workExperience.html">Work Experience</a></li>
+        <li><a href="/contact.html">Contact Me</a></li>
+      </ul>
+      <a class="resume-btn" href="resume.pdf" download="David Smith Software Engineer Resume.pdf">Resume</a>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="intro">
+      <p class="greeting">Hello, my Name is</p>
+      <p class="name">David Smith.</p>
+      <p class="description">I enjoy creating software</p>
+      <p class="explination">I am a software engineer who loves to create exicting software! Currently I am focused on growing my knowledge at Univerity of Linoln-Nebraska.</p>
+      <a class="resume-btn" href="resume.pdf" download="David Smith Software Engineer Resume.pdf">Resume</a>
+    </div>
+  </div>
+
+</body>
+</html>

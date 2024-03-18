@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #0A1128;
+  }
+
+  .navbar {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  border-bottom: 1px solid #cccccc;
+  }
+  
+  @media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+  }
+
+  .logo img {
+    width: 30px;
+  }
+
+  .menu-container {
+    display: flex;
+    align-items: center;
+  }
+
+  @media (max-width: 600px) {
+    .menu-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+  }
+
+  .menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-right: 20px;
+  }
+
+  .menu li {
+    display: inline;
+  }
+
+  .menu li a {
+    text-decoration: none;
+    color: #fff;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+  }
+
+  .menu li a:hover {
+    color: #cccccc;
+  }
+
+  .menu li:last-child {
+    margin-right: 0;
+  }
+
+  @media (max-width: 600px) {
+    .menu li {
+          display: block;
+          margin-bottom: 5px;
+      }
+    }
+
+  .resume-btn {
+    background-color: #034078;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    width: fit-content;
+    transition: background-color 0.3s ease;
+  }
+
+  .resume-btn:hover {
+    background-color: #001F54;
+  }
+
+/* About Page */
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    color: white;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  p {
+    font-size: 20px;
+  }
+
+  .portrait_img {
+    width: 400px;
+    height: 525px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .portrait_img {
+      width: 300px;
+      height: 400px;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .portrait_img {
+      display: none;
+    }
+  }
+
+
+</style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">
+      <a href="homepage.html">
+        <img src="/logo.png" alt="Logo">
+      </a>
+    </div>
+    <div class="menu-container">
+      <ul class="menu">
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/projects.html">Projects</a></li>
+        <li><a href="/workExperience.html">Work Experience</a></li>
+        <li><a href="/contact.html">Contact Me</a></li>
+      </ul>
+      <a class="resume-btn" href="resume.pdf" download="David Smith Software Engineer Resume.pdf">Resume</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="left-column">
+        <h1>David Smith</h1>
+        <p>Hello, my name is David.</p>
+        <p>I am an aspiring software engineer at the University of Nebraska. I have  progressive experience writing code and designing solutions. Seeking a challenging role as a Software Engineering Intern to expand my learning.</p>
+        <p> Adept at working effectively in fast-paced, deadline-driven settings that demand strong organizational and problem solving skills. </p>
+    </div>
+    <div class="right-column">
+        <img class="portrait_img" src="IMG_0188.jpg" alt="Self">
+    </div>
+</div>
+
+</body>
+</html>

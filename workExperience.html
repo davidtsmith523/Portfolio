@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #0A1128;
+  }
+
+  .navbar {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  border-bottom: 1px solid #cccccc;
+  }
+  
+  @media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+  }
+
+  .logo img {
+    width: 30px;
+  }
+
+  .menu-container {
+    display: flex;
+    align-items: center;
+  }
+
+  @media (max-width: 600px) {
+    .menu-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+  }
+
+  .menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-right: 20px;
+  }
+
+  .menu li {
+    display: inline;
+  }
+
+  .menu li a {
+    text-decoration: none;
+    color: #fff;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+  }
+
+  .menu li a:hover {
+    color: #cccccc;
+  }
+
+  .menu li:last-child {
+    margin-right: 0;
+  }
+
+  @media (max-width: 600px) {
+    .menu li {
+          display: block;
+          margin-bottom: 5px;
+      }
+    }
+
+  .resume-btn {
+    background-color: #034078;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    width: fit-content;
+    transition: background-color 0.3s ease;
+  }
+
+  .resume-btn:hover {
+    background-color: #001F54;
+  }
+
+  /* Work Experience Styles */
+  .title {
+    margin-left: 30px;
+    font-size: 32px;
+    color:white;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+  }
+
+  .item {
+    position: relative;
+    flex: 1;
+    background-color: #dddddd;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 5px;
+    height: 250px;
+  }
+
+  .item-heading {
+    margin-top: 0;
+    font-size: 24px;
+  }
+
+  .paragraph {
+    font-size: 20px;
+  }
+
+  .btn {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: #034078;
+    color: #fff;
+    border: none;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn:hover {
+    background-color: #001F54;
+  }
+
+  @media (max-width: 768px) {
+    .btn {
+        position: static;
+        margin-top: 10px;
+    }
+}
+
+
+</style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">
+      <a href="homepage.html">
+        <img src="/logo.png" alt="Logo">
+      </a>
+    </div>
+    <div class="menu-container">
+      <ul class="menu">
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/projects.html">Projects</a></li>
+        <li><a href="/workExperience.html">Work Experience</a></li>
+        <li><a href="/contact.html">Contact Me</a></li>
+      </ul>
+      <a class="resume-btn" href="resume.pdf" download="David Smith Software Engineer Resume.pdf">Resume</a>
+    </div>
+  </nav>
+  <h2 class="title">Work Experience</h2>
+  <div class="container">
+    <div class="item">
+      <h3 class="item-heading">Developer Intern</h3>
+      <p class="paragraph">At my first internhsip, I learned to perform stand ups, sprints, and learn about a project management board. I completed multiple page rewrites utilizing React and .Net.</p>
+      <a href="https://www.sandhills.com/" target="_blank" class="btn">Developer Intern</a>
+    </div>
+    <div class="item">
+      <h3 class="item-heading">Software Engineer Intern</h3>
+      <p class="paragraph">This summer, thankfully I was able to obtain another internship. Here, I am hopeful to learn about how software goes from an idea to production. Also, I am eager to imporve my skills in programming/problem solving.</p>
+      <a href="https://buildertrend.com/" target="_blank" class="btn">Software Engineer Intern</a>
+    </div>
+  </div>
+</body>
+</html>

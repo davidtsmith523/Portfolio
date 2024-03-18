@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #0A1128;
+  }
+
+  .navbar {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  border-bottom: 1px solid #cccccc;
+  }
+  
+  @media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+  }
+
+  .logo img {
+    width: 30px;
+  }
+
+  .menu-container {
+    display: flex;
+    align-items: center;
+  }
+
+  @media (max-width: 600px) {
+    .menu-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+  }
+
+  .menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-right: 20px;
+  }
+
+  .menu li {
+    display: inline;
+  }
+
+  .menu li a {
+    text-decoration: none;
+    color: #fff;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+  }
+
+  .menu li a:hover {
+    color: #cccccc;
+  }
+
+  .menu li:last-child {
+    margin-right: 0;
+  }
+
+  @media (max-width: 600px) {
+    .menu li {
+          display: block;
+          margin-bottom: 5px;
+      }
+    }
+
+  .resume-btn {
+    background-color: #034078;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    width: fit-content;
+    transition: background-color 0.3s ease;
+  }
+
+  .resume-btn:hover {
+    background-color: #001F54;
+  }
+
+/* Contact CSS */
+.title {
+    margin-left: 30px;
+    font-size: 32px;
+    color:white;
+}
+
+.container {
+  margin: 30px;
+}
+
+label {
+  color: white;
+  font-size: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  input {
+    height: 30px;
+    width: 400px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  input {
+    height: 30px;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+
+.inputs {
+  display: flex;
+  gap: 10px;
+}
+}
+
+.message {
+  flex: 1;
+}
+
+textarea {
+  width: 100%;
+}
+
+.button {
+  margin-top: 30px;
+  background-color: #034078;
+  color: #fff;
+  font-size: 20px;
+  border: none;
+  padding: 10px 100px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+}
+
+@media only screen and (max-width: 768px) {
+.button {
+  width: 100%;
+}
+}
+
+.button:hover {
+  background-color: #001F54;
+}
+
+
+
+</style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">
+      <a href="homepage.html">
+        <img src="/logo.png" alt="Logo">
+      </a>
+    </div>
+    <div class="menu-container">
+      <ul class="menu">
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/projects.html">Projects</a></li>
+        <li><a href="/workExperience.html">Work Experience</a></li>
+        <li><a href="/contact.html">Contact Me</a></li>
+      </ul>
+      <a class="resume-btn" href="resume.pdf" download="David Smith Software Engineer Resume.pdf">Resume</a>
+    </div>
+  </nav>
+  <h2 class="title">Get In Touch</h2>
+  <div class="container">
+    <div id="errorDiv" style="color: red;"></div>
+    <div id="successDiv" style="color: green;"></div>
+    <form id="contactForm">
+      <div class="inputs">
+      <div class="left-side">
+        <div>
+          <div>
+      <label for="name">Name:</label>
+    </div>
+      <input type="text" id="name" name="name" placeholder="Your Name*" required>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+    </div>
+    <div>
+      <input type="email" id="email" name="email" placeholder="Your Email Address*" required>
+      <div id="emailError" style="color: red;"></div>
+    </div>
+    <div>
+      <label for="subject">Subject:</label>
+    </div>
+      <input type="text" id="subject" name="subject" placeholder="Subject" required>
+
+    </div>
+    <div class="message">
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="9" placeholder="Type your message here..." required></textarea>
+    </div>
+    </div>
+      <button type="submit" class="button">Send!</button>
+    </form>
+  </div>
+
+</body>
+<script>
+
+  // Do this but for the message
+  const emailInput = document.getElementById("email");
+  const emailError = document.getElementById("emailError");
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  emailInput.addEventListener("blur", function() {
+    const email = emailInput.value.trim();
+    if (!emailPattern.test(email)) {
+      emailError.textContent = "Please enter a valid email address.";
+    } else {
+      emailError.textContent = "";
+    }
+  });
+  document.getElementById("contactForm").addEventListener("submit", function(event) {
+      const emailInput = document.getElementById("email");
+      const email = emailInput.value.trim();
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      const messageInput = document.getElementById("message");
+      const message = messageInput.value.trim();
+
+      if (!emailPattern.test(email)) {
+        document.getElementById("errorDiv").textContent = "Please enter a valid email address.";
+        event.preventDefault();
+        emailInput.focus();
+        return false;
+      } else if (message.length < 10) { 
+        document.getElementById("errorDiv").textContent = "Please enter a longer message.";
+        event.preventDefault();
+        messageInput.focus();
+        return false;
+      } else {
+        document.getElementById("errorDiv").textContent = "";
+        document.getElementById("successDiv").textContent = "Successfully sent email!";
+        event.preventDefault();
+        setTimeout(() => {
+          location.reload();
+        }, 3000);
+      }
+  });
+</script>
+</html>

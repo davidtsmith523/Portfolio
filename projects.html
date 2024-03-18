@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #0A1128;
+  }
+
+  .navbar {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  border-bottom: 1px solid #cccccc;
+  }
+
+  @media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+  }
+
+  .logo img {
+    width: 30px;
+  }
+
+  .menu-container {
+    display: flex;
+    align-items: center;
+  }
+
+  @media (max-width: 600px) {
+    .menu-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+  }
+
+  .menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-right: 20px;
+  }
+
+  .menu li {
+    display: inline;
+  }
+
+  .menu li a {
+    text-decoration: none;
+    color: #fff;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+  }
+
+  .menu li a:hover {
+    color: #cccccc;
+  }
+
+  .menu li:last-child {
+    margin-right: 0;
+  }
+
+  @media (max-width: 600px) {
+    .menu li {
+          display: block;
+          margin-bottom: 5px;
+      }
+  }
+
+  .resume-btn {
+    background-color: #034078;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    width: fit-content;
+    transition: background-color 0.3s ease;
+  }
+
+  .resume-btn:hover {
+    background-color: #001F54;
+  }
+
+/* Projects Css */
+.title {
+    margin-left: 30px;
+    font-size: 32px;
+    color:white;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+  }
+
+  .item {
+    position: relative;
+    flex: 1;
+    background-color: #dddddd;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 5px;
+    height: 250px;
+  }
+
+  .item-heading {
+    margin-top: 0;
+    font-size: 24px;
+  }
+
+  .paragraph {
+    font-size: 20px;
+  }
+
+  .btn {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: #034078;
+    color: #fff;
+    border: none;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn:hover {
+    background-color: #001F54;
+  }
+
+  @media (max-width: 768px) {
+    .btn {
+        position: static;
+        margin-top: 10px;
+    }
+}
+
+
+</style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">
+      <a href="homepage.html">
+        <img src="/logo.png" alt="Logo">
+      </a>
+    </div>
+    <div class="menu-container">
+      <ul class="menu">
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/projects.html">Projects</a></li>
+        <li><a href="/workExperience.html">Work Experience</a></li>
+        <li><a href="/contact.html">Contact Me</a></li>
+      </ul>
+      <a class="resume-btn" href="resume.pdf" download="David Smith Software Engineer Resume.pdf">Resume</a>
+    </div>
+  </nav>
+
+  <h2 class="title">Projects</h2>
+<div class="container">
+  <div class="item">
+    <h3 class="item-heading">Senior Design</h3>
+    <p class="paragraph">In Senior Design, my team built a software to help streamline loan applications. In this process, we use Node, React, and Firebase.</p>
+    <a href="https://www.hendersonstatebank.net/home/home" target="_blank" class="btn">Senior Design</a>
+  </div>
+  <div class="item">
+    <h3 class="item-heading">Pitivi Open Source</h3>
+    <p class="paragraph">In my SOFT261 class, my team contributed to an open-source video editing software. Python was the main language used.</p>
+    <a href="https://www.pitivi.org/" target="_blank" class="btn">Pitivi Open Source</a>
+  </div>
+  <div class="item">
+    <h3 class="item-heading">Real Estate Pro Tracker</h3>
+    <p class="paragraph">In my free time, I developed an app for Real Estate Owners to track the amount of work they are participating in each property. This was done using React Native and SQLite.</p>
+    <a href="https://play.google.com/store/apps/details?id=com.realestateprofessional.tracker&gl=us" target="_blank" class="btn">REP Tracker</a>
+  </div>
+</div>
+<div class="container">
+  <div class="item">
+    <h3 class="item-heading">Bin Tracker</h3>
+    <p class="paragraph">Developed an app that allows you to track items in a box using a QR code. The app enables you to find which box contains an the certain item. The technologies used to create this app were React Native, and Node.js. (still in progress)</p>
+    <a href="https://github.com/davidtsmith523/BinTracker" target="_blank" class="btn">Bin Tracker</a>
+  </div>
+  <div class="item">
+    <h3 class="item-heading">Givwyze</h3>
+    <p class="paragraph">Givwyze is a software product that offers an easy and accessible way to view loans tailored towards students. It is focused on encouragement and aiding to help pay off loans. (still in progress)</p>
+    <a href="https://www.givwyze.com/login" target="_blank" class="btn">Givwyze</a>
+  </div>
+</div>
+
+</body>
+</html>
