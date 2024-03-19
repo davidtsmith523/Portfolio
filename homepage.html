@@ -93,55 +93,58 @@
   }
 
 /* Main Content */
-.container {
-  display: flex;
-  justify-content: center;
-  max-width: 700px;
-  width: 100%;  
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+  .container {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    max-width: 700px;
+    width: 100%;  
+    left: 50%;
+  }
 
-  @media (max-width: 600px) {
+  @media (min-width: 600px) {
+    .container {
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  @media (max-width: 599px) {
     .container {
       top: 70%;
     }
   }
 
-.intro {
-  text-align: left;
-  margin-top: 0px;
-  color: white;
-}
+  .intro {
+    text-align: left;
+    margin-top: 0px;
+    color: white;
+  }
 
-.greeting {
-  color:#1282A2;
+  .greeting {
+    color:#1282A2;
+  }
 
-}
+  .name {
+    font-size: 4rem;
+    font-weight: 900;
+    margin: 5px 0;
+  }
 
-.name {
-  font-size: 4rem;
-  font-weight: 900;
-  margin: 5px 0;
-}
+  .description {
+    font-size: 4rem;
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
 
-.description {
-  font-size: 4rem;
-  margin-top: 0px;
-  margin-bottom: 10px;
-}
-
-.explination {
-  color: #cccccc
-}
-
+  .explination {
+    color: #cccccc
+  }
 
 </style>
 </head>
 <body>
-
   <nav class="navbar">
     <div class="logo">
       <a href="homepage.html">
@@ -167,6 +170,5 @@
       <a class="resume-btn" href="resume.pdf" download="David Smith Software Engineer Resume.pdf">Resume</a>
     </div>
   </div>
-
 </body>
 </html>

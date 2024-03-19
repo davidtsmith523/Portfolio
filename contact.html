@@ -93,80 +93,76 @@
   }
 
 /* Contact CSS */
-.title {
-    margin-left: 30px;
-    font-size: 32px;
-    color:white;
-}
-
-.container {
-  margin: 30px;
-}
-
-label {
-  color: white;
-  font-size: 20px;
-}
-
-@media only screen and (min-width: 768px) {
-  input {
-    height: 30px;
-    width: 400px;
+  .title {
+      margin-left: 30px;
+      font-size: 32px;
+      color:white;
   }
-}
 
-@media only screen and (max-width: 768px) {
-  input {
-    height: 30px;
+  .container {
+    margin: 30px;
+  }
+
+  label {
+    color: white;
+    font-size: 20px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    input {
+      height: 30px;
+      width: 400px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    input {
+      height: 30px;
+      width: 100%;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+
+    .inputs {
+      display: flex;
+      gap: 10px;
+    }
+  }
+
+  .message {
+    flex: 1;
+  }
+
+  textarea {
     width: 100%;
   }
-}
 
-@media only screen and (min-width: 768px) {
+  .button {
+    margin-top: 30px;
+    background-color: #034078;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    padding: 10px 100px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
 
-.inputs {
-  display: flex;
-  gap: 10px;
-}
-}
+  @media only screen and (max-width: 768px) {
+    .button {
+      width: 100%;
+    }
+  }
 
-.message {
-  flex: 1;
-}
-
-textarea {
-  width: 100%;
-}
-
-.button {
-  margin-top: 30px;
-  background-color: #034078;
-  color: #fff;
-  font-size: 20px;
-  border: none;
-  padding: 10px 100px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-
-}
-
-@media only screen and (max-width: 768px) {
-.button {
-  width: 100%;
-}
-}
-
-.button:hover {
-  background-color: #001F54;
-}
-
-
+  .button:hover {
+    background-color: #001F54;
+  }
 
 </style>
 </head>
 <body>
-
   <nav class="navbar">
     <div class="logo">
       <a href="homepage.html">
@@ -207,7 +203,6 @@ textarea {
       <label for="subject">Subject:</label>
     </div>
       <input type="text" id="subject" name="subject" placeholder="Subject">
-
     </div>
     <div class="message">
       <label for="message">Message:</label>
@@ -217,7 +212,6 @@ textarea {
       <button type="submit" class="button">Send!</button>
     </form>
   </div>
-
 </body>
 <script>
 
