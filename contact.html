@@ -206,7 +206,7 @@ textarea {
     <div>
       <label for="subject">Subject:</label>
     </div>
-      <input type="text" id="subject" name="subject" placeholder="Subject" required>
+      <input type="text" id="subject" name="subject" placeholder="Subject">
 
     </div>
     <div class="message">
@@ -221,7 +221,6 @@ textarea {
 </body>
 <script>
 
-  // Do this but for the message
   const emailInput = document.getElementById("email");
   const emailError = document.getElementById("emailError");
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -235,19 +234,10 @@ textarea {
     }
   });
   document.getElementById("contactForm").addEventListener("submit", function(event) {
-      const emailInput = document.getElementById("email");
-      const email = emailInput.value.trim();
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
       const messageInput = document.getElementById("message");
       const message = messageInput.value.trim();
 
-      if (!emailPattern.test(email)) {
-        document.getElementById("errorDiv").textContent = "Please enter a valid email address.";
-        event.preventDefault();
-        emailInput.focus();
-        return false;
-      } else if (message.length < 10) { 
+      if (message.length < 10) { 
         document.getElementById("errorDiv").textContent = "Please enter a longer message.";
         event.preventDefault();
         messageInput.focus();
