@@ -70,10 +70,30 @@
   }
 
   @media (max-width: 600px) {
-    .menu li {
-          display: block;
-          margin-bottom: 5px;
-      }
+  .menu li {
+      display: block;
+      margin-bottom: 5px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .menu-container {
+      display: none;
+    }
+  }
+  
+  .menu-icon img {
+    width: 30px;
+  }
+
+  .menu-icon:hover {
+    cursor: pointer;
+  }
+
+  @media (min-width: 600px) {
+    #menuToggle {
+      display: none;
+    }
   }
 
   .resume-btn {
@@ -167,7 +187,10 @@
         <img src="/logo.png" alt="Logo">
       </a>
     </div>
-    <div class="menu-container">
+    <div class="menu-icon">
+      <img src="/menu.png" alt="menu" id="menuToggle">
+    </div>
+    <div class="menu-container" id="menuContainer">
       <ul class="menu">
         <li><a href="/about.html">About</a></li>
         <li><a href="/projects.html">Projects</a></li>
@@ -191,7 +214,7 @@
   </div>
   <div class="item">
     <h3 class="item-heading">Real Estate Pro Tracker</h3>
-    <p class="paragraph">In my free time, I developed an app for Real Estate Owners to track the amount of work they are participating in each property. This was done using React Native and SQLite.</p>
+    <p class="paragraph">In my free time, I developed an app for Real Estate Owners to track hours, using React Native and SQLite.</p>
     <a href="https://play.google.com/store/apps/details?id=com.realestateprofessional.tracker&gl=us" target="_blank" class="btn">REP Tracker</a>
   </div>
 </div>
@@ -207,5 +230,20 @@
     <a href="https://www.givwyze.com/login" target="_blank" class="btn">Givwyze</a>
   </div>
 </div>
+<script>
+  // Responsive Hamburger Menu
+  document.addEventListener("DOMContentLoaded", function() {
+    var menuToggle = document.getElementById("menuToggle");
+    var menuContainer = document.getElementById("menuContainer");
+  
+    menuToggle.addEventListener("click", function() {
+      if (menuContainer.style.display === "flex") {
+        menuContainer.style.display = "none";
+      } else {
+        menuContainer.style.display = "flex";
+      }
+    });
+  });
+  </script>
 </body>
 </html>

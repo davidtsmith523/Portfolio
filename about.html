@@ -70,11 +70,31 @@
   }
 
   @media (max-width: 600px) {
-    .menu li {
-          display: block;
-          margin-bottom: 5px;
-      }
+  .menu li {
+      display: block;
+      margin-bottom: 5px;
     }
+  }
+
+  @media (max-width: 600px) {
+    .menu-container {
+      display: none;
+    }
+  }
+  
+  .menu-icon img {
+    width: 30px;
+  }
+
+  .menu-icon:hover {
+    cursor: pointer;
+  }
+
+  @media (min-width: 600px) {
+    #menuToggle {
+      display: none;
+    }
+  }
 
   .resume-btn {
     background-color: #034078;
@@ -137,7 +157,10 @@
         <img src="/logo.png" alt="Logo">
       </a>
     </div>
-    <div class="menu-container">
+    <div class="menu-icon">
+      <img src="/menu.png" alt="menu" id="menuToggle">
+    </div>
+    <div class="menu-container" id="menuContainer">
       <ul class="menu">
         <li><a href="/about.html">About</a></li>
         <li><a href="/projects.html">Projects</a></li>
@@ -159,5 +182,20 @@
         <img class="portrait_img" src="portrait_img.jpg" alt="Self">
     </div>
 </div>
+<script>
+  // Responsive Hamburger Menu
+  document.addEventListener("DOMContentLoaded", function() {
+    var menuToggle = document.getElementById("menuToggle");
+    var menuContainer = document.getElementById("menuContainer");
+  
+    menuToggle.addEventListener("click", function() {
+      if (menuContainer.style.display === "flex") {
+        menuContainer.style.display = "none";
+      } else {
+        menuContainer.style.display = "flex";
+      }
+    });
+  });
+  </script>
 </body>
 </html>
