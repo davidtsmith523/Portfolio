@@ -194,9 +194,11 @@
     </div>
     <div class="menu-container" id="menuContainer">
       <ul class="menu">
+        <li><a href="/index.html">Home</a></li>
         <li><a href="/about.html">About</a></li>
         <li><a href="/projects.html">Projects</a></li>
         <li><a href="/workExperience.html">Work Experience</a></li>
+        <li><a href="/futurePlans.html">Future Plans</a></li>
         <li><a href="/contact.html">Contact Me</a></li>
       </ul>
       <a class="resume-btn" href="resume.pdf" download="David Smith Software Engineer Resume.pdf">Resume</a>
@@ -206,20 +208,34 @@
   <div class="container">
     <div id="errorDiv" style="color: red;"></div>
     <div id="successDiv" style="color: green;"></div>
-    <form id="contactForm">
+    <form id="contactForm" action="saveContactInfo.php" method="post">
       <div class="inputs">
       <div class="left-side">
-        <div>
-          <div>
-      <label for="name">Name:</label>
-    </div>
-      <input type="text" id="name" name="name" placeholder="Your Name*" required>
+    <div>
+      <div>
+        <label for="first-name">First Name:*</label>
+      </div>
+      <input type="text" id="first-name" name="first-name" placeholder="John" required>
+      <div id="firstNameError" style="color: red;"></div>
     </div>
     <div>
-      <label for="email">Email:</label>
+      <div>
+        <label for="last-name">Last Name:*</label>
+      </div>
+      <input type="text" id="last-name" name="last-name" placeholder="Smith" required>
+      <div id="lastNameError" style="color: red;"></div>
     </div>
     <div>
-      <input type="email" id="email" name="email" placeholder="Your Email Address*" required>
+      <div>
+        <label for="phone-number">Phone Number:</label>
+      </div>
+      <input type="text" id="phone-number" name="phone-number" placeholder="(123) 456-7890" required>
+    </div>
+    <div>
+      <label for="email">Email:*</label>
+    </div>
+    <div>
+      <input type="email" id="email" name="email" placeholder="JohnSmith@gmail.com" required>
       <div id="emailError" style="color: red;"></div>
     </div>
     <div>
@@ -228,11 +244,11 @@
       <input type="text" id="subject" name="subject" placeholder="Subject">
     </div>
     <div class="message">
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" rows="9" placeholder="Type your message here..." required></textarea>
+      <label for="message">Message:*</label>
+      <textarea id="message" name="message" rows="16" placeholder="Type your message here..." required></textarea>
     </div>
     </div>
-      <button type="submit" class="button">Send!</button>
+      <button type="submit" class="button">Send Message!</button>
     </form>
   </div>
 </body>
@@ -256,6 +272,13 @@
   const emailError = document.getElementById("emailError");
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+  const firstNameInput = document.getElementById("first-name");
+  const firstNameError = document.getElementById("firstNameError");
+
+  const lastNameInput = document.getElementById("last-name");
+  const lastNameError = document.getElementById("lastNameError");
+
+  // email error handling when clicking out of textbox
   emailInput.addEventListener("blur", function() {
     const email = emailInput.value.trim();
     if (!emailPattern.test(email)) {
@@ -264,7 +287,30 @@
       emailError.textContent = "";
     }
   });
+
+  // first name error handling when clicking out of textbox
+  firstNameInput.addEventListener("blur", function() {
+    const firstName = firstNameInput.value.trim();
+    if (firstName.length < 1) {
+      firstNameError.textContent = "Please enter a First Name.";
+    } else {
+      firstNameError.textContent = "";
+    }
+  });
+
+    // last name error handling when clicking out of textbox
+    lastNameInput.addEventListener("blur", function() {
+    const lastName = lastNameInput.value.trim();
+    if (lastName.length < 1) {
+      lastNameError.textContent = "Please enter a Last Name.";
+    } else {
+      lastNameError.textContent = "";
+    }
+  });
+
+  // message error handling for submit button
   document.getElementById("contactForm").addEventListener("submit", function(event) {
+      event.preventDefault();
       const messageInput = document.getElementById("message");
       const message = messageInput.value.trim();
 
@@ -274,12 +320,24 @@
         messageInput.focus();
         return false;
       } else {
-        document.getElementById("errorDiv").textContent = "";
-        document.getElementById("successDiv").textContent = "Successfully sent email!";
-        event.preventDefault();
-        setTimeout(() => {
-          location.reload();
-        }, 3000);
+        fetch(this.action, {
+                method: 'POST',
+                body: new FormData(this)
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data)
+                if (data === "Sucessfully sent message!") {
+                    document.getElementById("errorDiv").textContent = "";
+                    document.getElementById("successDiv").textContent = data;
+                } else {
+                    alert(data);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Failed to send message. Please try again later.');
+            });
       }
   });
 </script>

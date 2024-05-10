@@ -112,40 +112,104 @@
     background-color: #001F54;
   }
 
+
 /* About Page */
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
     padding: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+    .grid-container {
+      display: block;
+    }
+  }
+
+.grid-item1 {
     color: white;
+    font-size: 5rem;
+    text-align: center;
+    align-self: flex-end;
+    grid-column: span 2;
+}
+
+@media only screen and (max-width: 600px) {
+    .grid-item1 {
+      text-align: left;
+    }
   }
 
-  h1 {
-    font-size: 3rem;
-  }
 
-  p {
-    font-size: 20px;
-  }
+.grid-item3 {
+    grid-column: span 2;
+    grid-row: span 4;
+}
 
-  .portrait_img {
-    width: 400px;
-    height: 525px;
-  }
 
-  @media only screen and (max-width: 768px) {
-    .portrait_img {
+.grid-item6 {
+    color: white;
+    font-size: 5rem;
+    grid-column: span 2;
+}
+
+
+.grid-item8 {
+    color: white;
+    margin-left: 40px;
+    grid-column: span 2;
+}
+
+.grid-item10 {
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    text-align: center;
+    grid-column: span 3;  
+}
+
+.self-image {
+  max-width: 400px;
+  max-height: 525px;
+}
+
+@media only screen and (max-width: 768px) {
+    .self-image {
       width: 300px;
       height: 400px;
     }
   }
 
   @media only screen and (max-width: 600px) {
-    .portrait_img {
+    .self-image {
       display: none;
     }
   }
+
+  /* SlideShow */
+  .slideshow-container {
+  position: relative;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
 
 
 </style>
@@ -162,24 +226,39 @@
     </div>
     <div class="menu-container" id="menuContainer">
       <ul class="menu">
+        <li><a href="/index.html">Home</a></li>
         <li><a href="/about.html">About</a></li>
         <li><a href="/projects.html">Projects</a></li>
         <li><a href="/workExperience.html">Work Experience</a></li>
+        <li><a href="/futurePlans.html">Future Plans</a></li>
         <li><a href="/contact.html">Contact Me</a></li>
       </ul>
       <a class="resume-btn" href="resume.pdf" download="David Smith Software Engineer Resume.pdf">Resume</a>
     </div>
   </nav>
-  <div class="container">
-    <div class="left-column">
-        <h1>David Smith</h1>
-        <p>Hello, my name is David.</p>
-        <p>I am an aspiring software engineer at the University of Nebraska. I have  progressive experience writing code and designing solutions. Seeking a challenging role as a Software Engineering Intern to expand my learning.</p>
-        <p>I am greate at working effectively in fast-paced, deadline-driven settings that demand strong organizational and problem solving skills.</p>
-        <p>With multiple experiences, projects, and class work under my belt, I am eager to take on any tasks that need my help.</p>
+  <div class="grid-container">
+    <div class="grid-item1">David</div>
+    <div class="grid-item">2</div>
+    <div class="grid-item3">
+      <div class="slideshow-container">
+        <div class="slide fade self-image">
+          <img src="portrait_img.jpg" width="300" height="400" alt="Slide 1">
+        </div>
+        <div class="slide fade self-image">
+          <img src="portrait_img_2.png" width="300" height="400" alt="Slide 2">
+        </div>
+        <div class="slide fade self-image">
+          <img src="portrait_img_3.png" width="300" height="400" alt="Slide 3">
+        </div>
+      </div>
     </div>
-    <div class="right-column">
-        <img class="portrait_img" src="portrait_img.jpg" alt="Self">
+    <div class="grid-item">5</div>
+    <div class="grid-item6">Smith</div>
+    <div class="grid-item">7</div>
+    <div class="grid-item8">
+      <p>Hello, my name is David.</p>
+      <p>I am an aspiring software engineer at the University of Nebraska. I have  progressive experience writing code and designing solutions. Seeking a challenging role as a Software Engineering Intern to expand my learning.</p>
+      <p> Adept at working effectively in fast-paced, deadline-driven settings that demand strong organizational and problem solving skills. </p>
     </div>
 </div>
 <script>
@@ -196,6 +275,22 @@
       }
     });
   });
+
+  let slideIndex = 0;
+
+  function showSlides() {
+    let slides = document.getElementsByClassName("slide");
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1; }
+    slides[slideIndex - 1].style.display = "block";
+    setTimeout(showSlides, 5000); // Change image every 5 seconds
+  }
+
+  showSlides();
   </script>
+
 </body>
 </html>

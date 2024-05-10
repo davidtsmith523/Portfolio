@@ -121,6 +121,7 @@
 
   .container {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
@@ -135,13 +136,13 @@
   }
 
   .item {
-    position: relative;
+    /* position: relative; */
     flex: 1;
     background-color: #dddddd;
     margin: 10px;
     padding: 20px;
     border-radius: 5px;
-    height: 250px;
+    /* height: 250px; */
   }
 
   .item-heading {
@@ -178,13 +179,32 @@
     }
   }
 
-  .icon {
-    width: 50px;
-    height: 50px;
-    color: white;
-    display: block;
-    background-color: black;
+    /* SlideShow */
+.slideshow-container {
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+}
+
+.fade {
+  display: block;
+  animation: slideInOut 12s forwards;
+}
+
+@keyframes slideInOut {
+  0% {
+    transform: translateX(100%);
   }
+  25% {
+    transform: translateX(0%);
+  }
+  75% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-110%);
+  }
+}
 
 </style>
 </head>
@@ -210,34 +230,36 @@
       <a class="resume-btn" href="resume.pdf" download="David Smith Software Engineer Resume.pdf">Resume</a>
     </div>
   </nav>
-  <h2 class="title">Projects</h2>
+  <h2 class="title">Future Plans</h2>
 <div class="container">
   <div class="item">
-    <h3 class="item-heading">Senior Design <i class="fa-solid fa-landmark"></i></h3>
-    <p class="paragraph">In Senior Design, my team built a software to help streamline loan applications. In this process, we use Node, React, and Firebase.</p>
-    <a href="https://www.hendersonstatebank.net/home/home" target="_blank" class="btn">Senior Design</a>
+    <h3 class="item-heading">Future Career</h3>
+    <p class="paragraph">For my future career, I am still deciding exactly what I want to go into. I enjoy writing software and coming up with new ideas that can help others. 
+      With my internships, I have learned a lot about writing a full stack application. I also would like to get some exposure in robotics software engineering and cybersecurity. 
+      These fields are also interesting to me! If you have any connections are recommendations, please contact me!
+    </p>
   </div>
-  <div class="item">
-    <h3 class="item-heading">Pitivi Open Source <i class="fa-solid fa-file-video"></i></h3>
-    <p class="paragraph">In my SOFT261 class, my team contributed to an open-source video editing software. Python was the main language used.</p>
-    <a href="https://www.pitivi.org/" target="_blank" class="btn">Pitivi Open Source</a>
-  </div>
-  <div class="item">
-    <h3 class="item-heading">Real Estate Pro <i class="fa-solid fa-house-chimney"></i></h3>
-    <p class="paragraph">In my free time, I developed an app for Real Estate Owners to track hours, using React Native and SQLite.</p>
-    <a href="https://play.google.com/store/apps/details?id=com.realestateprofessional.tracker&gl=us" target="_blank" class="btn">REP Tracker</a>
-  </div>
-</div>
-<div class="container">
-  <div class="item">
-    <h3 class="item-heading">Bin Tracker <i class="fa-solid fa-qrcode"></i></h3>
-    <p class="paragraph">Developed an app that allows you to track items in a box using a QR code. The app enables you to find which box contains an the certain item. The technologies used to create this app were React Native, and Node.js. (still in progress)</p>
-    <a href="https://github.com/davidtsmith523/BinTracker" target="_blank" class="btn">Bin Tracker</a>
-  </div>
-  <div class="item">
-    <h3 class="item-heading">Givwyze <i class="fa-solid fa-money-check-dollar"></i></h3>
-    <p class="paragraph">Givwyze is a software product that offers an easy and accessible way to view loans tailored towards students. It is focused on encouragement and aiding to help pay off loans. (still in progress)</p>
-    <a href="https://www.givwyze.com/login" target="_blank" class="btn">Givwyze</a>
+  <div class="slideshow-container">
+    <div class="slide fade item">
+      <h3 class="item-heading">Givwyze</h3>
+      <p class="paragraph">As my Junior year of college comes to an end. I plan to keep working on Givwyze.com. Givwyze helps people, specifically college students and young adults, pay off loans.
+        We recognize that many people do not have a great way to get advice on how they should pay off loans. More importantly, many people do not realize how much money they could save if they paid
+        off loans faster. With this software, we are able to come ups with goals that are specifically tailored to you. With this, we can help you pay off loans faster and save more money in the end.
+        Our team plans to keep working on this, and grow our customer rate as we continue to develop the product!
+      </p>
+    </div>
+    <div class="slide fade item">
+      <h3 class="item-heading">New Internship</h3>
+      <p class="paragraph">With summer coming up, I am taking a new internship with a software company. I am exciting to learn how the process of building great software with this company. Since 
+        I have a current internship, I am excited to see how the two differ and what new technologies, techniques, and tools I will learn from this new company.
+      </p>
+    </div>
+    <div class="slide fade item">
+      <h3 class="item-heading">Beyond School</h3>
+      <p class="paragraph">Even though I do not know exactly what I want to do out of school, I am exciting that there are many opportunities ahead. I plan to learn as much as possible with the
+        people around me!
+      </p>
+    </div>
   </div>
 </div>
 <script>
@@ -254,7 +276,21 @@
       }
     });
   });
+
+  let slideIndex = 0;
+
+  function showSlides() {
+    let slides = document.getElementsByClassName("slide");
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1; }
+    slides[slideIndex - 1].style.display = "block";
+    setTimeout(showSlides, 12000); // Change slide every 5 seconds
+  }
+
+  showSlides();
   </script>
 </body>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </html>
